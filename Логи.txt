@@ -1,0 +1,503 @@
+User@LAPTOP-RIHO75FS MINGW64 ~
+$ cd desktop
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop
+$ cd 1
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1
+$ git init
+Initialized empty Git repository in C:/Users/User/Desktop/1/.git/
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ touch 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git add .
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git commit -m "initial commit"
+[master (root-commit) b13c243] initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ vim 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git add .
+warning: in the working copy of '1.txt', LF will be replaced by CRLF the next time Git touches it
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git commit -m "changes in 1.txt"
+[master 318ed44] changes in 1.txt
+ 1 file changed, 1 insertion(+)
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git log
+commit 318ed443a54a25d6befd41e53d5efc9e3cd9ecaf (HEAD -> master)
+Author: Max <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:15:31 2022 +0300
+
+    changes in 1.txt
+
+commit b13c24301ab7a3714904d06bd52bc00a29ea0750
+Author: Max <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:14:24 2022 +0300
+
+    initial commit
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git cinfig --list
+git: 'cinfig' is not a git command. See 'git --help'.
+
+The most similar command is
+        config
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.name=Max
+user.email=maxim.martysiuk@gmail.com
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ touch 2.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git add .
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   2.txt
+
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git rm --cached 2.txt
+rm '2.txt'
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ vim 2.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git diff 2.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git add .
+warning: in the working copy of '2.txt', LF will be replaced by CRLF the next time Git touches it
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git commit -m "changes in 2.txt"
+[master ea60c3e] changes in 2.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 2.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git diff 2.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git log -p 2.txt
+commit ea60c3ea44e31aed5b26572efaaca23c8d8a951a (HEAD -> master)
+Author: Max <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:18:25 2022 +0300
+
+    changes in 2.txt
+
+diff --git a/2.txt b/2.txt
+new file mode 100644
+index 0000000..e56e15b
+--- /dev/null
++++ b/2.txt
+@@ -0,0 +1 @@
++12345
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ gitk
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ touch 3.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ vim 2.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git add .
+warning: in the working copy of '2.txt', LF will be replaced by CRLF the next time Git touches it
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   2.txt
+        new file:   3.txt
+
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git commit -m "added 3.txt & modified 2.txt"
+[master 6710af5] added 3.txt & modified 2.txt
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 3.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git config --global user.name "Maxim"
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git branch
+* master
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git branch new-vetka
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git checkout new-vetka
+Switched to branch 'new-vetka'
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (new-vetka)
+$ git checkout -b branch1
+Switched to a new branch 'branch1'
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ git branch -d new-vetka
+Deleted branch new-vetka (was 6710af5).
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ git branch
+* branch1
+  master
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ gitk --all
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ gitk --all
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ ls
+1.txt  2.txt  3.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ vim 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ git add .
+warning: in the working copy of '1.txt', LF will be replaced by CRLF the next time Git touches it
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ git commit -m "changes in 1.txt"
+[branch1 8a8a6f7] changes in 1.txt
+ 1 file changed, 1 insertion(+)
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (branch1)
+$ git checkout master
+Switched to branch 'master'
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ vim 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git add .
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git commit -m "1.txt changed"
+[master f171988] 1.txt changed
+ 1 file changed, 1 insertion(+)
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git merge branch1
+Auto-merging 1.txt
+CONFLICT (content): Merge conflict in 1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master|MERGING)
+$ vim 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master|MERGING)
+$ git merge --continue
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+U       1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master|MERGING)
+$ git add .
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master|MERGING)
+$ git merge --continue
+[master 6ef5ad0] Merge branch 'branch1'
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git log
+commit 6ef5ad0bb796a616b013615efdb315d38ae3673a (HEAD -> master)
+Merge: f171988 8a8a6f7
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:28:53 2022 +0300
+
+    Merge branch 'branch1'
+
+commit f1719882cb732209ac33cb9a90fc6cc45415f50c
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:26:59 2022 +0300
+
+    1.txt changed
+
+commit 8a8a6f70f75094b3a20d3312f64ac5d286e33aa0 (branch1)
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:25:49 2022 +0300
+
+    changes in 1.txt
+
+commit 6710af50750184c82a026c0cebc4b3068f757d6a
+Author: Max <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:21:19 2022 +0300
+
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git branch -d branch1
+Deleted branch branch1 (was 8a8a6f7).
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git checkout -b new
+Switched to a new branch 'new'
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (new)
+$ vim 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (new)
+$ git add .
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (new)
+$ git commit -m "ch in 1.txt"
+[new ec08d5f] ch in 1.txt
+ 1 file changed, 1 insertion(+)
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (new)
+$ git checkout master
+Switched to branch 'master'
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ vim 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git add .
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git commit -m "added"
+[master d378d0a] added
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git rebase new
+Auto-merging 1.txt
+CONFLICT (content): Merge conflict in 1.txt
+error: could not apply d378d0a... added
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply d378d0a... added
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master|REBASE 1/1)
+$ vim 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master|REBASE 1/1)
+$ git add .
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master|REBASE 1/1)
+$ git rebse --continue
+git: 'rebse' is not a git command. See 'git --help'.
+
+The most similar command is
+        rebase
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master|REBASE 1/1)
+$ git rebase --continue
+[detached HEAD 0542df0] added
+ 1 file changed, 3 insertions(+)
+Successfully rebased and updated refs/heads/master.
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git log
+commit 0542df0b2df925e48a3a7df42b977ccd06472bcd (HEAD -> master)
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:32:53 2022 +0300
+
+    added
+
+commit ec08d5f7d1cfbba98db1ac319dee7a996b804c5d (new)
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:31:29 2022 +0300
+
+    ch in 1.txt
+
+commit 6ef5ad0bb796a616b013615efdb315d38ae3673a
+Merge: f171988 8a8a6f7
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:28:53 2022 +0300
+
+    Merge branch 'branch1'
+
+commit f1719882cb732209ac33cb9a90fc6cc45415f50c
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:26:59 2022 +0300
+
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git log
+commit 0542df0b2df925e48a3a7df42b977ccd06472bcd (HEAD -> master)
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:32:53 2022 +0300
+
+    added
+
+commit ec08d5f7d1cfbba98db1ac319dee7a996b804c5d (new)
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:31:29 2022 +0300
+
+    ch in 1.txt
+
+commit 6ef5ad0bb796a616b013615efdb315d38ae3673a
+Merge: f171988 8a8a6f7
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:28:53 2022 +0300
+
+    Merge branch 'branch1'
+
+commit f1719882cb732209ac33cb9a90fc6cc45415f50c
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:26:59 2022 +0300
+
+    1.txt changed
+
+commit 8a8a6f70f75094b3a20d3312f64ac5d286e33aa0
+Author: Maxim <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:25:49 2022 +0300
+
+    changes in 1.txt
+
+commit 6710af50750184c82a026c0cebc4b3068f757d6a
+Author: Max <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:21:19 2022 +0300
+
+    added 3.txt & modified 2.txt
+
+commit ea60c3ea44e31aed5b26572efaaca23c8d8a951a
+Author: Max <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:18:25 2022 +0300
+
+    changes in 2.txt
+
+commit 318ed443a54a25d6befd41e53d5efc9e3cd9ecaf
+Author: Max <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:15:31 2022 +0300
+
+    changes in 1.txt
+
+commit b13c24301ab7a3714904d06bd52bc00a29ea0750
+Author: Max <maxim.martysiuk@gmail.com>
+Date:   Thu Nov 3 14:14:24 2022 +0300
+
+    initial commit
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git checkout  318ed
+Note: switching to '318ed'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 318ed44 changes in 1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 ((318ed44...))
+$ ls
+1.txt
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 ((318ed44...))
+$ gitk --all
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 ((318ed44...))
+$ git checkout master
+Previous HEAD position was 318ed44 changes in 1.txt
+Switched to branch 'master'
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$  git remote add origin https://github.com/MaxMart71/lab2.git
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$ git push origin HEAD
+Enumerating objects: 27, done.
+Counting objects: 100% (27/27), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (27/27), 2.23 KiB | 285.00 KiB/s, done.
+Total 27 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/MaxMart71/lab2.git
+ * [new branch]      HEAD -> master
+
+User@LAPTOP-RIHO75FS MINGW64 ~/desktop/1 (master)
+$
